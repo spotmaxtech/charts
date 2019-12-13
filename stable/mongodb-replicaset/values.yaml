@@ -108,10 +108,10 @@ persistentVolume:
   ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
   ##   GKE, AWS & OpenStack)
   ##
-  # storageClass: "-"
+  storageClass: efficiency-delete-wait
   accessModes:
     - ReadWriteOnce
-  size: 10Gi
+  size: 20Gi
   annotations: {}
 
 # Annotations to be added to the service
