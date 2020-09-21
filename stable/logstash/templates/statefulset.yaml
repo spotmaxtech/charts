@@ -52,7 +52,9 @@ spec:
 {{ toYaml .Values.extraInitContainers | indent 8 }}
 {{- end }}
       containers:
-
+{{- if .Values.extraContainers }}
+{{ toYaml .Values.extraContainers | indent 8 }}
+{{- end }}
         ## logstash
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
@@ -91,6 +93,10 @@ spec:
           {{- end }}
           {{- if .Values.extraEnv }}
 {{ .Values.extraEnv | toYaml | indent 12 }}
+          {{- end }}
+          {{- if .Values.envFrom }}
+          envFrom:
+{{ toYaml .Values.envFrom | indent 12 }}
           {{- end }}
           resources:
 {{ toYaml .Values.resources | indent 12 }}

@@ -1,4 +1,4 @@
-apiVersion: apps/v1beta2
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels: {{ include "sentry-kubernetes.labels" . | indent 4 }}
@@ -40,6 +40,10 @@ spec:
           {{ if .Values.sentry.logLevel }}
           - name: LOG_LEVEL
             value: {{ .Values.sentry.logLevel }}
+          {{ end }}
+          {{ if .Values.sentry.eventLevels }}
+          - name: EVENT_LEVELS
+            value: {{ .Values.sentry.eventLevels }}
           {{ end }}
         resources:
 {{ toYaml .Values.resources | indent 10 }}

@@ -66,6 +66,7 @@ Parameter                           | Description                               
 `resources`                         | Resource requests & limits                                                      | `{}`
 `serviceAccount.name`               | Name of Kubernetes service account to use                                       | `""` (defaults to `default`)
 `serviceAccount.create`             | Toggle for service account creation                                             | `false`
+`serviceAccount.annotations`        | Annotations for service account. Only used if `create` is `true`.               | `nil`
 `service.type`                      | Type of service to create                                                       | `ClusterIP`
 `service.httpPort`                  | Port for the http service                                                       | `9255`
 `stackdriver.projectId`             | GCP Project ID                                                                  | ``
@@ -87,6 +88,8 @@ Parameter                           | Description                               
 `tolerations`                       | Node taints to tolerate (requires Kubernetes >=1.6) 							  | `[]`
 `serviceMonitor.enabled`            | if `true`, creates a Prometheus Operator ServiceMonitor                         | `false`
 `serviceMonitor.namespace`          | Namespace where you want to create the ServiceMonitor                           | `monitoring`
+`serviceMonitor.additionalLabels`   | Labels used by Prometheus Operator to discover your Service Monitor. Set according to your Prometheus setup | `{}`
+`monitoring`
 `serviceMonitor.interval`           | How frequently to scrape metrics (not set: fall back to Prometheus' default)    |  `nil`
 `serviceMonitor.honorLabels`        | if `true`, label conflicts are resolved by keeping label values from the scraped data | `true`
 

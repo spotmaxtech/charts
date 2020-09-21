@@ -3,6 +3,16 @@
 This is an implementation of Aerospike StatefulSet found here:
 * <https://github.com/aerospike/aerospike-kubernetes>
 
+----------------------------------------
+# Deprecation Warning
+*As part of the [deprecation timeline](https://github.com/helm/charts/#deprecation-timeline), another repository has taken over the chart [here](hhttps://github.com/aerospike/aerospike-kubernetes/tree/master/helm)*
+
+Note: this is the official repository.
+
+Please make PRs / Issues here from now on.
+
+----------------------------------------
+
 ## Pre Requisites
 * Kubernetes 1.9+
 * PV support on underlying infrastructure (only if you are provisioning persistent volume).
@@ -33,6 +43,7 @@ The chart can be customized using the following configurable parameters:
 | `image.repository`              | Aerospike Container image name                                  | `aerospike/aerospike-server` |
 | `image.tag`                     | Aerospike Container image tag                                   | `4.5.0.5`                    |
 | `image.pullPolicy`              | Aerospike Container pull policy                                 | `Always`                     |
+| `image.pullSecret`              | Aerospike Pod pull secret                                       | ``                     |
 | `replicaCount`                  | Aerospike Brokers                                               | `1`                          |
 | `command`                       | Custom command (Docker Entrypoint)                              | `[]`                         |
 | `args`                          | Custom args (Docker Cmd)                                        | `[]`                         |
